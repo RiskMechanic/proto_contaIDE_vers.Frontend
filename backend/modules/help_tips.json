@@ -1,0 +1,5 @@
+{
+  "acquisto": "📘 Registrazione acquisto:\nComando: add\nEsempio: add 2025-01-10 ACQ supplier:LINX imponibile:300 iva:22 banca:ISP",
+  "fattura": "📗 Emissione fattura:\nComando: add\nEsempio: add 2025-01-12 FA cliente:ACME imponibile:1000 iva:22 banca:BBVA",
+  "giroconto": "📊 Giroconto IVA:\nComando: adj\nEsempio: adj 2025-01-15 giroconto:IVA_versamento periodo:2025-01 importo:220 conto_banca:ISP"
+}

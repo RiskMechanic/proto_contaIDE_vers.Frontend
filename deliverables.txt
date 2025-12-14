@@ -1,0 +1,77 @@
+Logic architecture
+UI/Parser - CommandController(orchestrator) - LedgerService (public API) - Validator - PostingEngine(DB writer, transactions) - DB manager
+
+
+
+
+
+
+
+Phase 1 – Foundation & Core Functionality
+Focus: Build a solid, compliant accounting engine with a usable frontend and DSL layer.
+
+1. Core Accounting Engine
+Double‑entry enforcement: Every transaction must balance debit/credit.
+Chart of Accounts management: Create, edit, and structure accounts hierarchically.
+Journal (Prima Nota): Commands to add entries, automatic numbering/timestamps, debit/credit validation.
+Mastrini (Ledger Accounts): Real‑time saldo calculation, reconciliation commands.
+Bilancio (Trial Balance / Balance Sheet): DSL commands for bilancio, stato patrimoniale, conto economico.
+Period closing & reopening: Month‑end/year‑end routines with controls.
+Accruals & deferrals: Adjusting entries for prepaid/accumulated items.
+Persistence: SQLite schema for journal, accounts, balances; migration scripts.
+
+2. Terminal DSL Layer
+Command parser: Tokenization, validation, extensible grammar.
+Autosuggest: Ghost text, fuzzy matching, contextual suggestions.
+History: ↑/↓ navigation, persistent log.
+Error handling: Color‑coded feedback, clear messages.
+
+3. Frontend (Qt UI)
+Main panel: Journal, Mastrini, Bilancio tabs.
+Split/unsplit: Robust logic with original widgets (no proxies).
+Terminal: Input line with autocomplete, output scrollback.
+Help bar: Searchable DSL documentation, contextual hints.
+Keyboard shortcuts: Tab switching, terminal focus, help toggle.
+
+4. Testing & QA
+Unit tests: Journal logic, saldo, bilancio.
+Integration tests: End‑to‑end workflows (add entry → bilancio).
+UI tests: Split/unsplit, shortcuts, terminal input.
+
+
+
+#############################################################################################################################
+Phase 2 – Professional Features & Compliance
+Focus: Elevate the system to professional accounting software standards.
+
+1. Advanced Accounting & Compliance
+Multi‑currency support: FX conversion, revaluation, gains/losses.
+GAAP/IFRS compliance: Built‑in rules for recognized standards.
+IVA/Tax handling: Automatic VAT postings, quarterly declaration reports.
+Fixed asset management: Depreciation schedules, disposals, revaluations.
+Inventory accounting: FIFO/LIFO/weighted average costing, COGS integration.
+Cash flow statements: Direct and indirect method.
+
+2. Security & Audit
+User roles & permissions: Granular access control.
+Audit trail: Immutable logs of all changes.
+Data integrity checks: Prevent deletion/alteration of posted entries without trace.
+GDPR compliance: Privacy and data protection features.
+
+3. Operational Features
+Bank integration: API feeds, reconciliation.
+Payroll & HR modules: Posting templates for salaries, taxes, benefits.
+Automation: Recurring entries, posting templates (payroll, amortization).
+Multi‑company support: Separate databases per client, quick switching.
+
+4. Reporting & Analytics
+Customizable financial statements: Flexible layouts, departmental P&L.
+Drill‑down capability: Balance sheet → account → journal entry.
+Budgeting & forecasting: Compare actuals vs budget, scenario planning.
+Analytics dashboards: Graphs for cash flow, expenses.
+
+5. Deployment & Support
+Packaging: PyInstaller/fbs for native executables.
+Distribution: GitHub Releases, signed installers.
+Documentation: DSL manual, quick start guide.
+Support: Issue tracker, feedback channel.
